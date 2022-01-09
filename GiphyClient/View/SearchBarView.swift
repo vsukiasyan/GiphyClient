@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @Binding var viewModel: [String]
     @Binding var searchText: String
     @Binding var isSearching: Bool
     
@@ -51,7 +50,6 @@ struct SearchBarView: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     // Make network call here
                     // update viewmodel to new search view
-                    viewModel = []
                 }) {
                     Text("Search")
                         .padding(.trailing)
@@ -67,6 +65,6 @@ struct SearchBarView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView(viewModel: .constant(["Testing", "123"]), searchText: .constant("Still Testing..."), isSearching: .constant(true))
+        SearchBarView(searchText: .constant("Still Testing..."), isSearching: .constant(true))
     }
 }

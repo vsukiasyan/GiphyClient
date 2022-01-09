@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GifObject: Decodable {
+struct GifObject: Decodable, Identifiable {
     var id: String
     var title: String
     var source_tld: String

@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var viewModel = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen"]
+    @ObservedObject var viewModel = GifViewModel()
     @State var searchText = ""
     @State var isSearching = false
     
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(viewModel: $viewModel, searchText: $searchText, isSearching: $isSearching)
-                List(viewModel, id: \.self) {
-                    Text($0)
+                SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                List(viewModel.gifs) { gif in
+                    
+                    Text(gif.title)
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Giphy Search")
                 
             }
+        }
+        .onAppear {
+            viewModel.getTrendingGifs()
         }
     }
 }
