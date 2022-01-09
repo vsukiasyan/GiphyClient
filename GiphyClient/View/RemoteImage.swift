@@ -29,7 +29,7 @@ struct RemoteImage: View {
     }
 }
 
-struct AppetizerRemoteImage: View {
+struct GifRemoteImage: View {
     @StateObject var imageLoader = ImageLoader()
     let urlString: String
     

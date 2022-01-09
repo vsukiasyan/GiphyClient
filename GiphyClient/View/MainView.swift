@@ -17,8 +17,7 @@ struct MainView: View {
             VStack {
                 SearchBarView(searchText: $searchText, isSearching: $isSearching)
                 List(viewModel.gifs) { gif in
-                    
-                    Text(gif.title)
+                    GifListCell(gif: gif)
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Giphy Search")
@@ -27,6 +26,7 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.getTrendingGifs()
+            print("this happened")
         }
     }
 }

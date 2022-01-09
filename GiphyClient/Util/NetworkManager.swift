@@ -24,7 +24,7 @@ final class NetworkManager {
             completed(.failure(.invalidURL))
             return
         }
-        
+       
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             if let _ = error {
                 completed(.failure(.unableToComplete))
@@ -44,6 +44,7 @@ final class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedResponse = try decoder.decode(GifResponse.self, from: data)
+                print(decodedResponse)
                 completed(.success(decodedResponse.data))
             } catch {
                 completed(.failure(.invalidData))
