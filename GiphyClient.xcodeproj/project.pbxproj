@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67268C85278B59420079FC33 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67268C84278B59420079FC33 /* SearchBarView.swift */; };
+		6733E7C4278B62EF0032383E /* GifObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6733E7C3278B62EF0032383E /* GifObject.swift */; };
 		67685A66278B452600F20F1F /* GiphyClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A65278B452600F20F1F /* GiphyClientApp.swift */; };
 		67685A68278B452600F20F1F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A67278B452600F20F1F /* MainView.swift */; };
 		67685A6A278B452900F20F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67685A69278B452900F20F1F /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		67268C84278B59420079FC33 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		6733E7C3278B62EF0032383E /* GifObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifObject.swift; sourceTree = "<group>"; };
 		67685A62278B452500F20F1F /* GiphyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67685A65278B452600F20F1F /* GiphyClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyClientApp.swift; sourceTree = "<group>"; };
 		67685A67278B452600F20F1F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		67685A95278B455B00F20F1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6733E7C3278B62EF0032383E /* GifObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				67685A68278B452600F20F1F /* MainView.swift in Sources */,
 				67685A66278B452600F20F1F /* GiphyClientApp.swift in Sources */,
 				67268C85278B59420079FC33 /* SearchBarView.swift in Sources */,
+				6733E7C4278B62EF0032383E /* GifObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

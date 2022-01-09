@@ -19,6 +19,7 @@ struct MainView: View {
                 List(viewModel, id: \.self) {
                     Text($0)
                 }
+                .listStyle(PlainListStyle())
                 .navigationTitle("Giphy Search")
                 
             }
