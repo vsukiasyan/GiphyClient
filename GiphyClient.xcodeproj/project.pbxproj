@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67268C85278B59420079FC33 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67268C84278B59420079FC33 /* SearchBarView.swift */; };
 		67685A66278B452600F20F1F /* GiphyClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A65278B452600F20F1F /* GiphyClientApp.swift */; };
-		67685A68278B452600F20F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A67278B452600F20F1F /* ContentView.swift */; };
+		67685A68278B452600F20F1F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A67278B452600F20F1F /* MainView.swift */; };
 		67685A6A278B452900F20F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67685A69278B452900F20F1F /* Assets.xcassets */; };
 		67685A6D278B452900F20F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67685A6C278B452900F20F1F /* Preview Assets.xcassets */; };
 		67685A78278B452900F20F1F /* GiphyClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67685A77278B452900F20F1F /* GiphyClientTests.swift */; };
@@ -33,9 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67268C84278B59420079FC33 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		67685A62278B452500F20F1F /* GiphyClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67685A65278B452600F20F1F /* GiphyClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyClientApp.swift; sourceTree = "<group>"; };
-		67685A67278B452600F20F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		67685A67278B452600F20F1F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		67685A69278B452900F20F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67685A6C278B452900F20F1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		67685A6E278B452900F20F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,8 +97,10 @@
 		67685A64278B452500F20F1F /* GiphyClient */ = {
 			isa = PBXGroup;
 			children = (
+				67685A95278B455B00F20F1F /* Model */,
+				67685A94278B455900F20F1F /* View */,
+				67685A93278B455600F20F1F /* ViewModel */,
 				67685A65278B452600F20F1F /* GiphyClientApp.swift */,
-				67685A67278B452600F20F1F /* ContentView.swift */,
 				67685A69278B452900F20F1F /* Assets.xcassets */,
 				67685A6E278B452900F20F1F /* Info.plist */,
 				67685A6B278B452900F20F1F /* Preview Content */,
@@ -128,6 +132,29 @@
 				67685A84278B452900F20F1F /* Info.plist */,
 			);
 			path = GiphyClientUITests;
+			sourceTree = "<group>";
+		};
+		67685A93278B455600F20F1F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67685A94278B455900F20F1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67685A67278B452600F20F1F /* MainView.swift */,
+				67268C84278B59420079FC33 /* SearchBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67685A95278B455B00F20F1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67685A68278B452600F20F1F /* ContentView.swift in Sources */,
+				67685A68278B452600F20F1F /* MainView.swift in Sources */,
 				67685A66278B452600F20F1F /* GiphyClientApp.swift in Sources */,
+				67268C85278B59420079FC33 /* SearchBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
