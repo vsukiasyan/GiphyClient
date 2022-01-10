@@ -15,7 +15,6 @@ struct AlertItem: Identifiable {
 }
 
 struct AlertContext {
-    // - NETWORK ALERTS
     static let invalidData = AlertItem(title: Text("Server Error "),
                                               message: Text("Data received from server is invalid. "),
                                               dismissButton: .default(Text("OK")))

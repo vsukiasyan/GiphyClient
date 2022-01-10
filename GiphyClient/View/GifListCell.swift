@@ -14,7 +14,6 @@ struct GifListCell: View {
     var body: some View {
         HStack {
             AnimatedImage(url: URL(string: gif.images.fixed_height.url))
-            //GifRemoteImage(urlString: gif.images.fixed_height.url)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 150)
                 .cornerRadius(8)

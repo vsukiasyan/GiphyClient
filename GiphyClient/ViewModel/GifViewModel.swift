@@ -9,7 +9,7 @@ import Foundation
 
 final class GifViewModel: ObservableObject {
     @Published var gifs: [GifObject] = []
-    @Published var gif2 = [String: GifObject]()
+    @Published var gif = [String: GifObject]()
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
     
@@ -68,7 +68,7 @@ final class GifViewModel: ObservableObject {
                 self.isLoading = false
                 switch result {
                 case .success(let gif):
-                    self.gif2["data"] = gif
+                    self.gif["data"] = gif
                 case .failure(let error):
                     switch error {
                     case .invalidResponse:
