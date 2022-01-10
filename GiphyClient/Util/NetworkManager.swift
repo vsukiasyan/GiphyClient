@@ -15,6 +15,7 @@ final class NetworkManager {
     private let cache = NSCache<NSString, UIImage>()
     
     private let trendingURL = "https://api.giphy.com/v1/gifs/trending?api_key=IwvCw7j2eElDJbSORTdXMac77MsxawP6&limit=25&rating=pg"
+    private let searchURL = "https://api.giphy.com/v1/gifs/search?api_key=IwvCw7j2eElDJbSORTdXMac77MsxawP6&q=cat&limit=25&offset=0&rating=pg&lang=en"
     
     
     private init() {}
@@ -44,7 +45,6 @@ final class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedResponse = try decoder.decode(GifResponse.self, from: data)
-                print(decodedResponse)
                 completed(.success(decodedResponse.data))
             } catch {
                 completed(.failure(.invalidData))
@@ -52,6 +52,41 @@ final class NetworkManager {
         }
         task.resume()
     }
+    
+    func search(searchText: String, completed: @escaping (Result<[GifObject], GifError>) -> Void) {
+        guard let url = URL(string: searchURL) else {
+            completed(.failure(.invalidURL))
+            return
+        }
+       
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode(GifResponse.self, from: data)
+                completed(.success(decodedResponse.data))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+        task.resume()
+    }
+    
+  
     
     func downloadImage(fromURLString: String, completed: @escaping (UIImage?) -> Void) {
         let cacheKey = NSString(string: fromURLString)

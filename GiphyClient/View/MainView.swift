@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel = GifViewModel()
+    @EnvironmentObject var viewModel: GifViewModel
     @State var searchText = ""
     @State var isSearching = false
     
@@ -16,12 +16,22 @@ struct MainView: View {
         NavigationView {
             VStack {
                 SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                
                 List(viewModel.gifs) { gif in
-                    GifListCell(gif: gif)
+                    NavigationLink(destination: DetailView()) {
+                        GifListCell(gif: gif)
+                    }
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Giphy Search")
                 
+            }
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            }
+         
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
         .onAppear {

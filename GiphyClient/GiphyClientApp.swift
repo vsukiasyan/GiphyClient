@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct GiphyClientApp: App {
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(GifViewModel())
         }
     }
 }

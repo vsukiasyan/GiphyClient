@@ -20,7 +20,33 @@ final class GifViewModel: ObservableObject {
                 switch result {
                 case .success(let gifs):
                     self.gifs = gifs
-                    print(self.gifs[0].title)
+                case .failure(let error):
+                    switch error {
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                    case .invalidURL:
+                        self.alertItem = AlertContext.invalidURL
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                    case .unableToComplete:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
+    func search() {
+        isLoading = true
+        NetworkManager.shared.search(searchText: "test") { result in
+            DispatchQueue.main.async {
+                self.isLoading = false
+                switch result {
+                case .success(let gifs):
+                    self.gifs = gifs
+                    print(gifs)
                 case .failure(let error):
                     switch error {
                     case .invalidResponse:
