@@ -15,7 +15,7 @@ final class NetworkManager {
     private let cache = NSCache<NSString, UIImage>()
     
     private let trendingURL = "https://api.giphy.com/v1/gifs/trending?api_key=IwvCw7j2eElDJbSORTdXMac77MsxawP6&limit=25&rating=pg"
-    private let searchURL = "https://api.giphy.com/v1/gifs/search?api_key=IwvCw7j2eElDJbSORTdXMac77MsxawP6&q=cat&limit=25&offset=0&rating=pg&lang=en"
+    private let searchURL = "https://api.giphy.com/v1/gifs/search?api_key=IwvCw7j2eElDJbSORTdXMac77MsxawP6&limit=25&offset=0&rating=pg&lang=en&q="
     
     
     private init() {}
@@ -54,7 +54,9 @@ final class NetworkManager {
     }
     
     func search(searchText: String, completed: @escaping (Result<[GifObject], GifError>) -> Void) {
-        guard let url = URL(string: searchURL) else {
+        let fullSearchURL = searchURL + searchText
+        print(fullSearchURL)
+        guard let url = URL(string: fullSearchURL) else {
             completed(.failure(.invalidURL))
             return
         }

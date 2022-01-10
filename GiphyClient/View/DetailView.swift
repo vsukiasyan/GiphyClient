@@ -15,7 +15,7 @@ struct DetailView: View {
             // do stuff
         }
         .onAppear {
-            viewModel.search()
+            // do stuff
         }
     }
 }

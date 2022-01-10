@@ -38,9 +38,9 @@ final class GifViewModel: ObservableObject {
         
     }
     
-    func search() {
+    func search(searchText: String) {
         isLoading = true
-        NetworkManager.shared.search(searchText: "test") { result in
+        NetworkManager.shared.search(searchText: searchText) { result in
             DispatchQueue.main.async {
                 self.isLoading = false
                 switch result {
