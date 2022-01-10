@@ -10,9 +10,8 @@ import SDWebImageSwiftUI
 
 struct DetailView: View {
     @EnvironmentObject var viewModel: GifViewModel
+    
     var id: String
-    
-    
     
     var body: some View {
         VStack {

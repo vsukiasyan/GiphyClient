@@ -36,7 +36,6 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.getTrendingGifs()
-            print("this happened")
         }
     }
 }
