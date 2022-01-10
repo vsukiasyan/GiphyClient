@@ -35,8 +35,6 @@ final class GifViewModel: ObservableObject {
                 }
             }
         }
-        
-        
     }
     
     func search(searchText: String) {
@@ -47,7 +45,6 @@ final class GifViewModel: ObservableObject {
                 switch result {
                 case .success(let gifs):
                     self.gifs = gifs
-                    print(gifs)
                 case .failure(let error):
                     switch error {
                     case .invalidResponse:
@@ -72,7 +69,6 @@ final class GifViewModel: ObservableObject {
                 switch result {
                 case .success(let gif):
                     self.gif2["data"] = gif
-                    print(gif)
                 case .failure(let error):
                     switch error {
                     case .invalidResponse:
