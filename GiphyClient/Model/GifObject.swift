@@ -30,6 +30,10 @@ struct GifResponse: Decodable {
     var data: [GifObject]
 }
 
+struct GifResponse2: Decodable {
+    var data: GifObject
+}
+
 struct GifMockData {
     
     static let samepleGif = GifObject(id: "kMI3z7b9RWrYQbsXd2",

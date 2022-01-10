@@ -18,7 +18,7 @@ struct MainView: View {
                 SearchBarView(searchText: $searchText, isSearching: $isSearching)
                 
                 List(viewModel.gifs) { gif in
-                    NavigationLink(destination: DetailView()) {
+                    NavigationLink(destination: DetailView(id: gif.id)) {
                         GifListCell(gif: gif)
                     }
                 }

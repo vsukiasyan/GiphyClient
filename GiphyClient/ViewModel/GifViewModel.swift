@@ -9,6 +9,7 @@ import Foundation
 
 final class GifViewModel: ObservableObject {
     @Published var gifs: [GifObject] = []
+    @Published var gif2 = [String: GifObject]()
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
     
@@ -62,4 +63,30 @@ final class GifViewModel: ObservableObject {
             }
         }
     }
+    
+    func getGifByID(id: String) {
+        isLoading = true
+        NetworkManager.shared.getGifByID(id: id) { result in
+            DispatchQueue.main.async {
+                self.isLoading = false
+                switch result {
+                case .success(let gif):
+                    self.gif2["data"] = gif
+                    print(gif)
+                case .failure(let error):
+                    switch error {
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                    case .invalidURL:
+                        self.alertItem = AlertContext.invalidURL
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                    case .unableToComplete:
+                        self.alertItem = AlertContext.unableToComplete
+                    }
+                }
+            }
+        }
+    }
+    
 }
