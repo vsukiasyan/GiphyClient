@@ -55,7 +55,9 @@ final class NetworkManager {
     }
     
     func search(searchText: String, completed: @escaping (Result<[GifObject], GifError>) -> Void) {
-        let fullSearchURL = baseURL + searchURL + searchText
+        guard let search = searchText.urlEncoded else { return }
+        
+        let fullSearchURL = baseURL + searchURL + search
         
         guard let url = URL(string: fullSearchURL) else {
             completed(.failure(.invalidURL))
@@ -129,4 +131,11 @@ enum GifError: Error {
     case invalidResponse
     case invalidData
     case unableToComplete
+}
+
+extension String {
+    var urlEncoded: String? {
+        let allowedCharacterSet = CharacterSet.alphanumerics.union(CharacterSet(charactersIn: "~-_."))
+        return self.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet)
+    }
 }

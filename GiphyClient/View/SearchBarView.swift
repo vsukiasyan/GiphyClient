@@ -48,8 +48,7 @@ struct SearchBarView: View {
                 Button(action: {
                     self.isSearching = false
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    // Make network call here
-                    // update viewmodel to new search view
+                    
                     viewModel.search(searchText: searchText)
                 }) {
                     Text("Search")
